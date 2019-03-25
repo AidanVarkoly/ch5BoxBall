@@ -23,34 +23,13 @@ public class BallDemo
         myCanvas = new Canvas("Ball Demo", 600, 500);
     }
 
-    /**
-     * Simulate two bouncing balls
-     */
-    public void bounce()
+    public void boxBounce()
     {
-        int ground = 400;   // position of the ground line
-
-        myCanvas.setVisible(true);
-
-        // draw the ground
-        myCanvas.drawLine(50, ground, 550, ground);
-
-        // crate and show the balls
-        BouncingBall ball = new BouncingBall(50, 50, 16, Color.BLUE, ground, myCanvas);
-        ball.draw();
-        BouncingBall ball2 = new BouncingBall(70, 80, 20, Color.RED, ground, myCanvas);
-        ball2.draw();
-
-        // make them bounce
-        boolean finished =  false;
-        while(!finished) {
-            myCanvas.wait(50);           // small delay
-            ball.move();
-            ball2.move();
-            // stop once ball has travelled a certain distance on x axis
-            if(ball.getXPosition() >= 550 || ball2.getXPosition() >= 550) {
-                finished = true;
-            }
+        BoxBall ball = new BoxBall(300 ,10, 25, Color.RED, myCanvas);
+        while(true)
+        {
+         ball.move(); 
+         myCanvas.wait(50);
         }
     }
 }
